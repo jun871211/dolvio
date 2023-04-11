@@ -1,0 +1,47 @@
+wsl
+bash
+
+# 레지스트리에서 도커 이미지 불러오기
+docker pull nginx:1.23
+
+# 이미지 확인
+docker images
+
+# 컨테이너 생성
+docker create nginx
+
+# 이미지 불러오고 컨테이너 생성 및 시작
+docker run nginx:1.23
+
+# 포트설정
+# nginx 컨테이너의 80번 포트를 호스트 모든 ip의 8090번 포트와 연결 후 실행
+docker run -d -p 8090:80 nginx
+
+
+
+# 컨테이너 전체 확인
+docker ps -a
+
+# 컨테이너 시작
+docker start nginx
+
+
+
+
+# 컨테이너 종료
+docker stop nginx
+
+# 모든 컨테이너 종료
+docker stop $(docker ps -a -q)
+
+# 컨테이너 (강제종료 후) 삭제
+docker rm (-f) nginx
+
+# 중지된 모든 컨테이너 삭제
+docker container prune
+
+
+
+# mysql 접속
+docker exec -it my-sql bash
+mysql -u root -p
